@@ -60,5 +60,4 @@ function CellPhone(manufacturer, model, color, price) {
   //output
   console.log(cellPhone.getDetails());
 
-
 // end program
