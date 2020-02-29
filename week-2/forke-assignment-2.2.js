@@ -50,7 +50,7 @@ var melissa = Object.create(person, {
 melissa.getAge();
 
 //output
-console.log("The person's full name is: '%s'", melissa.fullname);
-console.log("The person's age is: '%s'", melissa.age);
+console.log("The person's full name is: '%s.'", melissa.fullname);
+console.log("The person's age is: '%s.'", melissa.age);
 
 // end program
