@@ -47,7 +47,7 @@ var melissa = Object.create(person, {
 });
 
 //call getAge function
-melissa.getAge();
+console.log(melissa.getAge());
 
 //output
 console.log("The person's full name is: '%s.'", melissa.fullname);
