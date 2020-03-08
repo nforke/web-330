@@ -4,7 +4,7 @@
 ;Author: Professor Krasso
 ;Date: 06 March 2020
 ;Modified By: Nicole Forke
-;Description: The Factory Pattern
+;Description: The Singleton Pattern
 ===========================================
 */
 
