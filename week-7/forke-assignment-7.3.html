@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Assignment 7.3</title>
+
+    <!-- Stylesheet - Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+      integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous"
+    />
+
+    <!-- JavaScript Libraries -->
+    <script
+      type="text/javascript"
+      src="https://gc.kis.v2.scr.kaspersky-labs.com/5DACB2B0-5003-6543-8B39-D8EE6E4FC44C/main.js"
+      charset="UTF-8">
+    </script>
+    <script src="../knockout-v3.5.1.js"></script>
+  </head>
+  <body>
+    <div role="main" class="container">
+      <br /><br />
+      <h2>Assignment 7.3 - The "foreach" binding</h2>
+
+      <table class="table table-light table-striped table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody data-bind="foreach:books">
+          <tr>
+            <td data-bind="text:name"></td>
+            <td data-bind="text:price"></td>
+          </tr>
+        </tbody>
+      </table>
+        <br />
+    </div>
+
+    <!-- ForEach Binding Using Knockout -->
+    <script>
+      function TextbookViewModel() {
+        this.books=ko.observableArray([
+          {name: "The Night of the Grizzly", price: 10.99},
+          {name: "Bad Kitty vs Uncle Murray", price: 4.99},
+          {name: "The Tale of Despereaux", price: 8.99},
+          {name: "Charlie and the Chocolate Factory", price: 7.99}
+        ]);
+      }
+      ko.applyBindings(new TextbookViewModel());
+    </script>
+  </body>
+</html>
