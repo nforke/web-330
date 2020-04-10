@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Assignment 8.2 - Employee View Model</title>
+
+  <!-- Stylesheet Bootstrap -->
+    <link
+     rel="stylesheet"
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+     integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous"
+    />
+  <!-- JavaScript Libraries -->
+    <script src="../knockout-v3.5.1.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div role="main" class="container">
+      <br>
+      <br>
+      <h2>Employee View Model</h2>
+      <br>
+      <div class="row" data-bind="if: error"></div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card card-inverse" style="background-color: #333; border-color: #333; color: white">
+            <div class="card-block p-3">
+              <h3 class="card-title">Add New Employee:</h3>
+
+              <div class="card-text">
+                <div class="form-group row">
+                  <label for="txtEmployeeName" class="col-2 col-form-label">Name:</label>
+
+                  <div class="col-6">
+                    <input type="text" data-bind="value: nameToAdd, valueUpdate: 'afterkeydown'" class="form-control" id="txtEmployeeName">
+                  </div>
+
+                  <div class="col-4">
+                    <a href="#" data-bind="click: add" class="btn btn-primary">Add</a>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="txtEmployeeList">Employee List:</label>
+                  <select size="10" class="form-control" data-bind="options: list" id="txtEmployeeList">
+                    <option value="Jamie">Jamie</option>
+                    <option value="Dave">Dave</option>
+                    <option value="Janet">Janet</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Knockout.js to create the interactive form -->
+    <script>
+      function EmployeeViewModel() {
+        this.nameToAdd = ko.observable("");
+        this.list = ko.observableArray(["Jamie", "Dave", "Janet"]);
+        this.error = ko.observable("");
+
+        this.add = function () {
+          if (
+            (this.nameToAdd() !== "") &&
+            (this.list.indexOf(this.nameToAdd()) < 0)) {
+            this.error("");
+            this.list.push(this.nameToAdd());
+          } else {
+            this.error("Duplicate or Invalid Entry.");
+          }
+
+          this.nameToAdd("");
+        };
+      }
+
+      ko.applyBindings(new EmployeeViewModel());
+    </script>
+  </body>
+</html>
