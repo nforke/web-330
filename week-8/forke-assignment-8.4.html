@@ -160,6 +160,11 @@
       </div>
     </div>
     <script>
+
+      // Variables
+      var Id = Id;
+      var Name = Name;
+
       // Employee Javascript Object
       function Employee(id, name) {
         this.Id = id;
@@ -197,8 +202,8 @@
         // Add Employee
         self.add = function newEmployee() {
           if (
-            (self.nameToAdd() !== "" && self.idToAdd() !== "") &&
-            (employeeList.indexOf(self.nameToAdd()) < 0) && employeeList.indexOf(self.idToAdd())) {
+            (self.nameToAdd() !== "") &&
+            (employeeList.indexOf(self.nameToAdd()) < 0)) {
             self.error("");
             employeeList.push(self.nameToAdd());
           } else {
