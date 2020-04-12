@@ -40,8 +40,9 @@ charset="UTF-8"
 
       <!-- Error Message -->
       <div class="row" data-bind="if: error">
-        <div class="row data-bind=if: error">
+        <div class="col-sm-12">
           <div class="alert alert-danger" role="alert">
+            <strong>Warning!</strong> <span data-bind="text: error()"></span>
           </div>
         </div>
       </div>
